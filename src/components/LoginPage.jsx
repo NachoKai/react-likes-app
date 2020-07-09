@@ -29,7 +29,7 @@ const Button = styled.button`
   }
 `;
 
-export default function LoginPage() {
+const LoginPage = () => {
   return (
     <Container>
       <h1>Inicia Sesión con Google</h1>
@@ -38,4 +38,6 @@ export default function LoginPage() {
       <Button>Cerrar Sesión</Button>
     </Container>
   );
-}
+};
+
+export default LoginPage;

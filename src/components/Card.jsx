@@ -95,7 +95,7 @@ function onClick(side) {
   return () => console.log(side);
 }
 
-export default function Card({ name, image, rightClick, leftClick }) {
+const Card = ({ name, image, rightClick, leftClick }) => {
   return (
     <Container>
       <CardContainer>
@@ -112,7 +112,9 @@ export default function Card({ name, image, rightClick, leftClick }) {
       </CardContainer>
     </Container>
   );
-}
+};
+
+export default Card;
 
 Card.propTypes = {
   name: PropTypes.string.isRequired,

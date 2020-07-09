@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
+import { connect } from 'react-redux';
 
+import { removeCharacterAction } from '../redux/characters';
 import Card from './Card';
 
 const Container = styled.div`
@@ -13,33 +14,11 @@ const Container = styled.div`
   align-items: center;
 `;
 
-let URL = 'https://rickandmortyapi.com/api';
-
-export default function Home() {
-  let [chars, setChars] = useState([]);
-
-  useEffect(() => {
-    getCharacters();
-  }, []);
-
-  function nextChar() {
-    chars.shift();
-    if (!chars.length) {
-      //get more characters
-    }
-    setChars([...chars]);
-  }
-
-  function renderCharacter() {
-    let char = chars[0];
-    return <Card leftClick={nextChar} {...char} />;
-  }
-
-  function getCharacters() {
-    return axios.get(`${URL}/character`).then(res => {
-      setChars(res.data.results);
-    });
-  }
+const Home = ({ chars, removeCharacterAction }) => {
+  const renderCharacter = () => {
+    const char = chars[0];
+    return <Card leftClick={removeCharacterAction} {...char} />;
+  };
 
   return (
     <Container>
@@ -47,4 +26,12 @@ export default function Home() {
       <div>{renderCharacter()}</div>
     </Container>
   );
-}
+};
+
+const mapStateToProps = state => {
+  return {
+    chars: state.characters.array,
+  };
+};
+
+export default connect(mapStateToProps, { removeCharacterAction })(Home);

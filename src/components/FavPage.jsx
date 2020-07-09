@@ -16,10 +16,10 @@ const Hearth = styled.span`
   margin: 10px 0 20px 0;
 `;
 
-export default function FavPage({ characters = [0] }) {
-  function renderCharacter(char, i) {
+const FavPage = ({ characters = [0] }) => {
+  const renderCharacter = (char, i) => {
     return <Card key={i} />;
-  }
+  };
   return (
     <Container>
       <Hearth>
@@ -31,4 +31,6 @@ export default function FavPage({ characters = [0] }) {
       {!characters.length && <h3>No hay personajes agregados</h3>}
     </Container>
   );
-}
+};
+
+export default FavPage;
