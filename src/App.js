@@ -1,25 +1,35 @@
 import React from 'react';
+import styled from 'styled-components';
 import './App.css';
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
 import Routes from './Routes';
 
-function App() {
+const Navbar = styled.div`
+  margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  box-sizing: border-box;
+  font-weight: bold;
+  font-size: 1.5rem;
+`;
+
+const App = () => {
   return (
-    <div>
-      <div className="nav-bar">
-        <NavLink className="link" activeClassName="active" exact to="/">
+    <>
+      <Navbar>
+        <NavLink className='link' activeClassName='active' exact to='/'>
           Inicio
         </NavLink>
-        <NavLink className="link" activeClassName="active" to="/favs">
+        <NavLink className='link' activeClassName='active' to='/favs'>
           Favoritos
         </NavLink>
-        <NavLink className="link" activeClassName="active" to="/login">
+        <NavLink className='link' activeClassName='active' to='/login'>
           Login
         </NavLink>
-      </div>
+      </Navbar>
       <Routes />
-    </div>
+    </>
   );
-}
+};
 
 export default App;
