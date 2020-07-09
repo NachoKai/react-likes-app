@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/react-likes-app/static/css/main.c4e5c4d7.chunk.css",
-    "main.js": "/react-likes-app/static/js/main.fbaace6b.chunk.js",
-    "main.js.map": "/react-likes-app/static/js/main.fbaace6b.chunk.js.map",
+    "main.js": "/react-likes-app/static/js/main.d9dadd95.chunk.js",
+    "main.js.map": "/react-likes-app/static/js/main.d9dadd95.chunk.js.map",
     "runtime-main.js": "/react-likes-app/static/js/runtime-main.9054d1e5.js",
     "runtime-main.js.map": "/react-likes-app/static/js/runtime-main.9054d1e5.js.map",
     "static/css/2.4c961840.chunk.css": "/react-likes-app/static/css/2.4c961840.chunk.css",
     "static/js/2.972198ce.chunk.js": "/react-likes-app/static/js/2.972198ce.chunk.js",
     "static/js/2.972198ce.chunk.js.map": "/react-likes-app/static/js/2.972198ce.chunk.js.map",
     "index.html": "/react-likes-app/index.html",
-    "precache-manifest.f6caad7095171ed294e69d0c9b47cc54.js": "/react-likes-app/precache-manifest.f6caad7095171ed294e69d0c9b47cc54.js",
+    "precache-manifest.01eae01d5df287c7727db2d67acad624.js": "/react-likes-app/precache-manifest.01eae01d5df287c7727db2d67acad624.js",
     "service-worker.js": "/react-likes-app/service-worker.js",
     "static/css/2.4c961840.chunk.css.map": "/react-likes-app/static/css/2.4c961840.chunk.css.map",
     "static/css/main.c4e5c4d7.chunk.css.map": "/react-likes-app/static/css/main.c4e5c4d7.chunk.css.map",
@@ -21,6 +21,6 @@
     "static/css/2.4c961840.chunk.css",
     "static/js/2.972198ce.chunk.js",
     "static/css/main.c4e5c4d7.chunk.css",
-    "static/js/main.fbaace6b.chunk.js"
+    "static/js/main.d9dadd95.chunk.js"
   ]
 }
