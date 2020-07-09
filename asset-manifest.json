@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/react-likes-app/static/css/main.c4e5c4d7.chunk.css",
-    "main.js": "/react-likes-app/static/js/main.d9dadd95.chunk.js",
-    "main.js.map": "/react-likes-app/static/js/main.d9dadd95.chunk.js.map",
+    "main.css": "/react-likes-app/static/css/main.090a312f.chunk.css",
+    "main.js": "/react-likes-app/static/js/main.886148bf.chunk.js",
+    "main.js.map": "/react-likes-app/static/js/main.886148bf.chunk.js.map",
     "runtime-main.js": "/react-likes-app/static/js/runtime-main.9054d1e5.js",
     "runtime-main.js.map": "/react-likes-app/static/js/runtime-main.9054d1e5.js.map",
     "static/css/2.4c961840.chunk.css": "/react-likes-app/static/css/2.4c961840.chunk.css",
-    "static/js/2.972198ce.chunk.js": "/react-likes-app/static/js/2.972198ce.chunk.js",
-    "static/js/2.972198ce.chunk.js.map": "/react-likes-app/static/js/2.972198ce.chunk.js.map",
+    "static/js/2.9a01be34.chunk.js": "/react-likes-app/static/js/2.9a01be34.chunk.js",
+    "static/js/2.9a01be34.chunk.js.map": "/react-likes-app/static/js/2.9a01be34.chunk.js.map",
     "index.html": "/react-likes-app/index.html",
-    "precache-manifest.01eae01d5df287c7727db2d67acad624.js": "/react-likes-app/precache-manifest.01eae01d5df287c7727db2d67acad624.js",
+    "precache-manifest.df73742e7a7e0e5f4b9306456b9c7e5d.js": "/react-likes-app/precache-manifest.df73742e7a7e0e5f4b9306456b9c7e5d.js",
     "service-worker.js": "/react-likes-app/service-worker.js",
     "static/css/2.4c961840.chunk.css.map": "/react-likes-app/static/css/2.4c961840.chunk.css.map",
-    "static/css/main.c4e5c4d7.chunk.css.map": "/react-likes-app/static/css/main.c4e5c4d7.chunk.css.map",
-    "static/js/2.972198ce.chunk.js.LICENSE.txt": "/react-likes-app/static/js/2.972198ce.chunk.js.LICENSE.txt",
+    "static/css/main.090a312f.chunk.css.map": "/react-likes-app/static/css/main.090a312f.chunk.css.map",
+    "static/js/2.9a01be34.chunk.js.LICENSE.txt": "/react-likes-app/static/js/2.9a01be34.chunk.js.LICENSE.txt",
     "static/media/font-awesome.css": "/react-likes-app/static/media/fontawesome-webfont.fee66e71.woff"
   },
   "entrypoints": [
     "static/js/runtime-main.9054d1e5.js",
     "static/css/2.4c961840.chunk.css",
-    "static/js/2.972198ce.chunk.js",
-    "static/css/main.c4e5c4d7.chunk.css",
-    "static/js/main.d9dadd95.chunk.js"
+    "static/js/2.9a01be34.chunk.js",
+    "static/css/main.090a312f.chunk.css",
+    "static/js/main.886148bf.chunk.js"
   ]
 }
