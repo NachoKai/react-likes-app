@@ -21,7 +21,7 @@ const Container = styled.div`
 const CardContainer = styled.div`
   background: #381460;
   color: #eee;
-  width: 90%;
+  width: 320px;
   padding: 15px;
   border-radius: 1rem;
   box-sizing: border-box;
@@ -33,7 +33,8 @@ const CardContainer = styled.div`
   position: relative;
 
   img {
-    height: auto;
+    border-radius: 1rem;
+    max-height: 300px;
     width: 100%;
   }
 `;
