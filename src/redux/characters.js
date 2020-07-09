@@ -38,27 +38,29 @@ export default function reducer(state = initialData, action) {
 
 // actions
 
-export const removeCharacterAction = () => (dispatch, getState) => {
-  const { array } = getState().characters;
-  array.shift();
-  dispatch({ type: REMOVE_CHARACTER, payload: [...array] });
+export const removeCharacterAction = () => {
+  return (dispatch, getState) => {
+    let { array } = getState().characters;
+    array.shift();
+    dispatch({ type: REMOVE_CHARACTER, payload: [...array] });
+  };
 };
 
-export const getCharactersAction = () => (dispatch, getState) => {
-  dispatch({
-    type: GET_CHARACTERS,
-  });
+export const getCharactersAction = () => {
+  return async (dispatch, getState) => {
+    dispatch({
+      type: GET_CHARACTERS,
+    });
 
-  return axios
-    .get(URL)
-    .then(res => {
+    try {
+      let res = await axios.get(URL);
       dispatch({
         type: GET_CHARACTERS_SUCCESS,
         payload: res.data.results,
       });
-    })
-    .catch(err => {
+    } catch (err) {
       console.error(err);
       dispatch({ type: GET_CHARACTERS_ERROR, payload: err.response.message });
-    });
+    }
+  };
 };

@@ -1,15 +1,27 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import Home from './components/HomePage';
 import FavPage from './components/FavPage';
 import LoginPage from './components/LoginPage';
 
-export default function Routes() {
+const PrivateRoute = ({ path, component, ...rest }) => {
+  let storage = localStorage.getItem('storage');
+  storage = JSON.parse(storage);
+  if (storage && storage.user) {
+    return <Route path={path} component={component} {...rest} />;
+  } else {
+    return <Redirect to='/login' {...rest} />;
+  }
+};
+
+export const Routes = () => {
   return (
     <Switch>
-      <Route exact path='/' component={Home} />
-      <Route path='/favs' component={FavPage} />
+      <PrivateRoute exact path='/' component={Home} />
+      <PrivateRoute path='/favs' component={FavPage} />
       <Route path='/login' component={LoginPage} />
     </Switch>
   );
-}
+};
+
+export default Routes;

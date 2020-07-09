@@ -16,7 +16,7 @@ const Container = styled.div`
 
 const Home = ({ chars, removeCharacterAction }) => {
   const renderCharacter = () => {
-    const char = chars[0];
+    let char = chars[0];
     return <Card leftClick={removeCharacterAction} {...char} />;
   };
 

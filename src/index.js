@@ -8,7 +8,7 @@ import App from './App';
 import './index.css';
 import 'font-awesome/css/font-awesome.css';
 
-const store = generateStore();
+let store = generateStore();
 
 const WithRouter = () => (
   <BrowserRouter>

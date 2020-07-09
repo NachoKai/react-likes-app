@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+
+import { doGoogleLoginAction, logOutAction } from '../redux/user.js';
 
 const Container = styled.div`
   width: 100%;
@@ -29,15 +32,48 @@ const Button = styled.button`
   }
 `;
 
-const LoginPage = () => {
+const LoginPage = ({
+  loggedIn,
+  logOutAction,
+  fetching,
+  doGoogleLoginAction,
+}) => {
+  const doLogin = () => {
+    doGoogleLoginAction();
+  };
+
+  const doLogOut = () => {
+    logOutAction();
+  };
+
+  if (fetching) {
+    return <h2 style={{ textAlign: 'center' }}>Cargando...</h2>;
+  }
+
   return (
     <Container>
-      <h1>Inicia Sesión con Google</h1>
-      <h1>Cierra tu sesión</h1>
-      <Button>Iniciar</Button>
-      <Button>Cerrar Sesión</Button>
+      {loggedIn ? (
+        <>
+          <h1>Cierra tu sesión</h1>
+          <Button onClick={doLogOut}>Cerrar Sesión</Button>
+        </>
+      ) : (
+        <>
+          <h1>Inicia Sesión con Google</h1>
+          <Button onClick={doLogin}>Iniciar</Button>
+        </>
+      )}
     </Container>
   );
 };
 
-export default LoginPage;
+const mapStateToProps = ({ user: { fetching, loggedIn } }) => {
+  return {
+    fetching,
+    loggedIn,
+  };
+};
+
+export default connect(mapStateToProps, { doGoogleLoginAction, logOutAction })(
+  LoginPage
+);
