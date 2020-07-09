@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/react-likes-app/static/css/main.9513faf1.chunk.css",
+    "main.js": "/react-likes-app/static/js/main.38d2a70d.chunk.js",
+    "main.js.map": "/react-likes-app/static/js/main.38d2a70d.chunk.js.map",
+    "runtime-main.js": "/react-likes-app/static/js/runtime-main.9edffa98.js",
+    "runtime-main.js.map": "/react-likes-app/static/js/runtime-main.9edffa98.js.map",
+    "static/css/2.8c08f09a.chunk.css": "/react-likes-app/static/css/2.8c08f09a.chunk.css",
+    "static/js/2.c2957524.chunk.js": "/react-likes-app/static/js/2.c2957524.chunk.js",
+    "static/js/2.c2957524.chunk.js.map": "/react-likes-app/static/js/2.c2957524.chunk.js.map",
+    "index.html": "/react-likes-app/index.html",
+    "precache-manifest.94c3658fbc52ab4900478210894828cd.js": "/react-likes-app/precache-manifest.94c3658fbc52ab4900478210894828cd.js",
+    "service-worker.js": "/react-likes-app/service-worker.js",
+    "static/css/2.8c08f09a.chunk.css.map": "/react-likes-app/static/css/2.8c08f09a.chunk.css.map",
+    "static/css/main.9513faf1.chunk.css.map": "/react-likes-app/static/css/main.9513faf1.chunk.css.map",
+    "static/js/2.c2957524.chunk.js.LICENSE": "/react-likes-app/static/js/2.c2957524.chunk.js.LICENSE",
+    "static/media/font-awesome.css": "/react-likes-app/static/media/fontawesome-webfont.fee66e71.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9edffa98.js",
+    "static/css/2.8c08f09a.chunk.css",
+    "static/js/2.c2957524.chunk.js",
+    "static/css/main.9513faf1.chunk.css",
+    "static/js/main.38d2a70d.chunk.js"
+  ]
+}
