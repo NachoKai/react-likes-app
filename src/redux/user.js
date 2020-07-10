@@ -1,4 +1,5 @@
 import { loginWithGoogle, signOutGoogle } from '../firebase';
+import { retreiveFavs } from './characters';
 
 // constants
 
@@ -37,24 +38,28 @@ export default reducer;
 
 // actions
 
-export const logOutAction = () => (dispatch, getState) => {
-  signOutGoogle();
-  dispatch({
-    type: LOG_OUT,
-  });
-  localStorage.removeItem('storage');
+export const logOutAction = () => {
+  return (dispatch, getState) => {
+    signOutGoogle();
+    dispatch({
+      type: LOG_OUT,
+    });
+    localStorage.removeItem('storage');
+  };
 };
 
-export const restoreSessionAction = () => dispatch => {
-  let storage = localStorage.getItem('storage');
-  storage = JSON.parse(storage);
+export const restoreSessionAction = () => {
+  return dispatch => {
+    let storage = localStorage.getItem('storage');
+    storage = JSON.parse(storage);
 
-  if (storage && storage.user) {
-    dispatch({
-      type: LOGIN_SUCCESS,
-      payload: storage.user,
-    });
-  }
+    if (storage && storage.user) {
+      dispatch({
+        type: LOGIN_SUCCESS,
+        payload: storage.user,
+      });
+    }
+  };
 };
 
 export const doGoogleLoginAction = () => {
@@ -75,6 +80,7 @@ export const doGoogleLoginAction = () => {
         },
       });
       saveStorage(getState());
+      retreiveFavs()(dispatch, getState);
     } catch (err) {
       console.error(err);
       dispatch({

@@ -2,7 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 
-import { removeCharacterAction } from '../redux/characters';
+import {
+  removeCharacterAction,
+  addToFavoritesAction,
+} from '../redux/characters';
 import Card from './Card';
 
 const Container = styled.div`
@@ -14,10 +17,16 @@ const Container = styled.div`
   align-items: center;
 `;
 
-const Home = ({ chars, removeCharacterAction }) => {
+const Home = ({ chars, removeCharacterAction, addToFavoritesAction }) => {
   const renderCharacter = () => {
     let char = chars[0];
-    return <Card leftClick={removeCharacterAction} {...char} />;
+    return (
+      <Card rightClick={addFav} leftClick={removeCharacterAction} {...char} />
+    );
+  };
+
+  const addFav = () => {
+    return addToFavoritesAction();
   };
 
   return (
@@ -34,4 +43,7 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { removeCharacterAction })(Home);
+export default connect(mapStateToProps, {
+  addToFavoritesAction,
+  removeCharacterAction,
+})(Home);

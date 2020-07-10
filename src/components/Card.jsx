@@ -10,6 +10,7 @@ const Container = styled.div`
   cursor: pointer;
   min-width: 250px;
   max-width: 450px;
+  margin: 20px 10px;
 
   span {
     color: white;
@@ -95,20 +96,22 @@ function onClick(side) {
   return () => console.log(side);
 }
 
-const Card = ({ name, image, rightClick, leftClick }) => {
+const Card = ({ name, image, rightClick, leftClick, hide }) => {
   return (
     <Container>
       <CardContainer>
         <img alt='rick' src={image} />
         <Name>{name}</Name>
-        <Actions>
-          <Left onClick={leftClick || onClick('left')}>
-            <FontAwesome name='thumbs-down' size='2x' />
-          </Left>
-          <Right onClick={rightClick || onClick('right')}>
-            <FontAwesome name='heart' size='2x' />
-          </Right>
-        </Actions>
+        {!hide && (
+          <Actions>
+            <Left onClick={leftClick || onClick('left')}>
+              <FontAwesome name='thumbs-down' size='2x' />
+            </Left>
+            <Right onClick={rightClick || onClick('right')}>
+              <FontAwesome name='heart' size='2x' />
+            </Right>
+          </Actions>
+        )}
       </CardContainer>
     </Container>
   );
