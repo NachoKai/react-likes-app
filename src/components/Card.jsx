@@ -60,7 +60,7 @@ const Actions = styled.div`
   margin: 0;
 
   &:hover {
-    opacity: 1;
+    opacity: 0.9;
   }
 `;
 
@@ -70,7 +70,7 @@ const Left = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
-  background-color: rgba(189, 195, 199, 0.7);
+  background-color: rgba(189, 195, 199, 0.3);
   border-radius: 1rem 0 0 1rem;
   &:hover span {
     font-size: 7rem;
@@ -83,7 +83,7 @@ const Right = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
-  background-color: rgba(246, 36, 89, 0.7);
+  background-color: rgba(246, 36, 89, 0.3);
   border-radius: 0 1rem 1rem 0;
   &:hover span {
     font-size: 7rem;
@@ -93,10 +93,10 @@ const Right = styled.div`
 const Card = ({ name, image, rightClick, leftClick, hide }) => {
   return (
     <>
-      {image ? (
+      {name ? (
         <Container>
           <CardContainer>
-            <img alt={name} src={image} />
+            {image && <img alt={name} src={image} />}
             <Name>{name}</Name>
 
             {!hide && (
@@ -128,6 +128,6 @@ Card.propTypes = {
 };
 
 Card.defaultProps = {
-  name: '',
-  image: null,
+  name: 'Loading...',
+  image: '',
 };

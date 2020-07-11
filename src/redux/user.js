@@ -39,7 +39,7 @@ export default reducer;
 // actions
 
 export const logOutAction = () => {
-  return (dispatch, getState) => {
+  return dispatch => {
     signOutGoogle();
     dispatch({
       type: LOG_OUT,

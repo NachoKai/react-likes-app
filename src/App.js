@@ -24,7 +24,7 @@ const App = () => {
           Favorites
         </NavLink>
         <NavLink className='link' activeClassName='active' to='/login'>
-          Login
+          User
         </NavLink>
       </Navbar>
       <Routes />

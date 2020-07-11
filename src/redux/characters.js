@@ -1,4 +1,4 @@
-import axios from 'axios';
+import ApolloClient, { gql } from 'apollo-boost';
 import { updateDB, getFavs } from '../firebase';
 
 // constants
@@ -8,9 +8,10 @@ const initialData = {
   array: [],
   current: {},
   favorites: [],
+  nextPage: 1,
 };
 
-const URL = 'https://rickandmortyapi.com/api/character';
+const CLIENT = new ApolloClient({ uri: 'https://rickandmortyapi.com/graphql' });
 
 const GET_CHARACTERS = 'GET_CHARACTERS';
 const GET_CHARACTERS_SUCCESS = 'GET_CHARACTERS_SUCCESS';
@@ -20,6 +21,7 @@ const ADD_TO_FAVORITES = 'ADD_TO_FAVORITES';
 const GET_FAVS = 'GET_FAVS ';
 const GET_FAVS_SUCCESS = 'GET_FAVS_SUCCESS ';
 const GET_FAVS_ERROR = 'GET_FAVS_ERROR';
+const UPDATE_PAGE = 'UPDATE_PAGE';
 
 // reducer
 
@@ -48,6 +50,9 @@ export default function reducer(state = initialData, action) {
 
     case GET_FAVS_ERROR:
       return { ...state, fetching: false, error: action.payload };
+
+    case UPDATE_PAGE:
+      return { ...state, nextPage: action.payload };
 
     default:
       return state;
@@ -83,7 +88,9 @@ export const addToFavoritesAction = () => {
     const character = array.shift();
 
     favorites.push(character);
+
     updateDB(favorites, uid);
+
     dispatch({
       type: ADD_TO_FAVORITES,
       payload: { array: [...array], favorites: [...favorites] },
@@ -95,25 +102,58 @@ export const removeCharacterAction = () => {
   return (dispatch, getState) => {
     let { array } = getState().characters;
     array.shift();
+    if (!array.length) {
+      getCharactersAction()(dispatch, getState);
+      return;
+    }
     dispatch({ type: REMOVE_CHARACTER, payload: [...array] });
   };
 };
 
 export const getCharactersAction = () => {
   return async (dispatch, getState) => {
+    let query = gql`
+      query($page: Int) {
+        characters(page: $page) {
+          info {
+            pages
+            next
+            prev
+          }
+          results {
+            name
+            image
+          }
+        }
+      }
+    `;
+
     dispatch({
       type: GET_CHARACTERS,
     });
 
-    try {
-      let res = await axios.get(URL);
+    const { nextPage } = getState().characters;
+    const { data, error } = await CLIENT.query({
+      query,
+      variables: { page: nextPage },
+    });
+
+    if (error) {
       dispatch({
-        type: GET_CHARACTERS_SUCCESS,
-        payload: res.data.results,
+        type: GET_CHARACTERS_ERROR,
+        payload: error,
       });
-    } catch (err) {
-      console.error(err);
-      dispatch({ type: GET_CHARACTERS_ERROR, payload: err.response.message });
+      return;
     }
+
+    dispatch({
+      type: GET_CHARACTERS_SUCCESS,
+      payload: data.characters.results,
+    });
+
+    dispatch({
+      type: UPDATE_PAGE,
+      payload: data.characters.info.next ? data.characters.info.next : 1,
+    });
   };
 };

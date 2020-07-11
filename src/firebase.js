@@ -26,7 +26,9 @@ export const getFavs = async uid => {
   }
 };
 
-export const updateDB = (array, uid) => db.doc(uid).set({ array });
+export const updateDB = (array, uid) => {
+  return db.doc(uid).set({ array });
+};
 
 export const loginWithGoogle = async () => {
   let provider = new firebase.auth.GoogleAuthProvider();
