@@ -90,30 +90,35 @@ const Right = styled.div`
   }
 `;
 
-let rick = 'https://rickandmortyapi.com/api/character/avatar/1.jpeg';
-
 function onClick(side) {
   return () => console.log(side);
 }
 
 const Card = ({ name, image, rightClick, leftClick, hide }) => {
   return (
-    <Container>
-      <CardContainer>
-        <img alt='rick' src={image} />
-        <Name>{name}</Name>
-        {!hide && (
-          <Actions>
-            <Left onClick={leftClick || onClick('left')}>
-              <FontAwesome name='thumbs-down' size='2x' />
-            </Left>
-            <Right onClick={rightClick || onClick('right')}>
-              <FontAwesome name='heart' size='2x' />
-            </Right>
-          </Actions>
-        )}
-      </CardContainer>
-    </Container>
+    <>
+      {image ? (
+        <Container>
+          <CardContainer>
+            <img alt={name} src={image} />
+            <Name>{name}</Name>
+
+            {!hide && (
+              <Actions>
+                <Left onClick={leftClick || onClick('left')}>
+                  <FontAwesome name='thumbs-down' size='2x' />
+                </Left>
+                <Right onClick={rightClick || onClick('right')}>
+                  <FontAwesome name='heart' size='2x' />
+                </Right>
+              </Actions>
+            )}
+          </CardContainer>
+        </Container>
+      ) : (
+        <h2>No more characters...</h2>
+      )}
+    </>
   );
 };
 
@@ -127,6 +132,6 @@ Card.propTypes = {
 };
 
 Card.defaultProps = {
-  name: 'Rick Sanches',
-  image: rick,
+  name: '',
+  image: null,
 };
