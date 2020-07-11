@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3c30e4ed70f1b886169f3034b3204c0b",
+    "revision": "475ee7cd4dc414307f162d9516d6c3b9",
     "url": "/react-likes-app/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-likes-app/static/css/2.4c961840.chunk.css"
   },
   {
-    "revision": "77b303e3cd9db2f3a809",
+    "revision": "3809a67658e1f8a4e17c",
     "url": "/react-likes-app/static/css/main.090a312f.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-likes-app/static/js/2.0eadbc15.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "77b303e3cd9db2f3a809",
-    "url": "/react-likes-app/static/js/main.9c07614e.chunk.js"
+    "revision": "3809a67658e1f8a4e17c",
+    "url": "/react-likes-app/static/js/main.373aab6c.chunk.js"
   },
   {
     "revision": "9f65524321590345480c",
