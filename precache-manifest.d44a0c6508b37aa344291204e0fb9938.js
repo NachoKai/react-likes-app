@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "475ee7cd4dc414307f162d9516d6c3b9",
+    "revision": "9f8c13cb1ff0a8fac9851f4325f75c7b",
     "url": "/react-likes-app/index.html"
   },
   {
-    "revision": "d58c88210bd4b839206b",
+    "revision": "667307472276185ae361",
     "url": "/react-likes-app/static/css/2.4c961840.chunk.css"
   },
   {
-    "revision": "3809a67658e1f8a4e17c",
+    "revision": "0946898943bee3fc37a9",
     "url": "/react-likes-app/static/css/main.090a312f.chunk.css"
   },
   {
-    "revision": "d58c88210bd4b839206b",
-    "url": "/react-likes-app/static/js/2.0eadbc15.chunk.js"
+    "revision": "667307472276185ae361",
+    "url": "/react-likes-app/static/js/2.8b3ff0b4.chunk.js"
   },
   {
-    "revision": "cad15be74346e960da3f0b37fe5b29e5",
-    "url": "/react-likes-app/static/js/2.0eadbc15.chunk.js.LICENSE.txt"
+    "revision": "5884b767ccb0dbdc65369b605a517d1e",
+    "url": "/react-likes-app/static/js/2.8b3ff0b4.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "3809a67658e1f8a4e17c",
-    "url": "/react-likes-app/static/js/main.373aab6c.chunk.js"
+    "revision": "0946898943bee3fc37a9",
+    "url": "/react-likes-app/static/js/main.a82371c4.chunk.js"
   },
   {
     "revision": "9f65524321590345480c",
