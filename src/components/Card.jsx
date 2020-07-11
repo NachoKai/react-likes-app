@@ -90,10 +90,6 @@ const Right = styled.div`
   }
 `;
 
-function onClick(side) {
-  return () => console.log(side);
-}
-
 const Card = ({ name, image, rightClick, leftClick, hide }) => {
   return (
     <>
@@ -105,10 +101,10 @@ const Card = ({ name, image, rightClick, leftClick, hide }) => {
 
             {!hide && (
               <Actions>
-                <Left onClick={leftClick || onClick('left')}>
+                <Left onClick={leftClick}>
                   <FontAwesome name='thumbs-down' size='2x' />
                 </Left>
-                <Right onClick={rightClick || onClick('right')}>
+                <Right onClick={rightClick}>
                   <FontAwesome name='heart' size='2x' />
                 </Right>
               </Actions>

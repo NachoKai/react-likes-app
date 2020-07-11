@@ -18,10 +18,10 @@ const App = () => {
     <>
       <Navbar>
         <NavLink className='link' activeClassName='active' exact to='/'>
-          Inicio
+          Home
         </NavLink>
         <NavLink className='link' activeClassName='active' to='/favs'>
-          Favoritos
+          Favorites
         </NavLink>
         <NavLink className='link' activeClassName='active' to='/login'>
           Login

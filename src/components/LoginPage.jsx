@@ -47,20 +47,24 @@ const LoginPage = ({
   };
 
   if (fetching) {
-    return <h2 style={{ textAlign: 'center' }}>Cargando...</h2>;
+    return <h2 style={{ textAlign: 'center' }}>Loading...</h2>;
   }
 
   return (
     <Container>
       {loggedIn ? (
         <>
-          <h1>Cierra tu sesión</h1>
-          <Button onClick={doLogOut}>Cerrar Sesión</Button>
+          <h1>
+            <span role='img' aria-label='bye'>
+              👋
+            </span>
+          </h1>
+          <Button onClick={doLogOut}>Log Out</Button>
         </>
       ) : (
         <>
-          <h1>Inicia Sesión con Google</h1>
-          <Button onClick={doLogin}>Iniciar</Button>
+          <h1>Sign In with Google</h1>
+          <Button onClick={doLogin}>Sign In</Button>
         </>
       )}
     </Container>

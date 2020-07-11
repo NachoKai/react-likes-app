@@ -31,7 +31,11 @@ const Home = ({ chars, removeCharacterAction, addToFavoritesAction }) => {
 
   return (
     <Container>
-      <h2>Personajes</h2>
+      <h2>
+        <span role='img' aria-label='alien'>
+          👽
+        </span>
+      </h2>
       <div>{renderCharacter()}</div>
     </Container>
   );

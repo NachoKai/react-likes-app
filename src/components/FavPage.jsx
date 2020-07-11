@@ -31,7 +31,7 @@ const FavPage = ({ characters = [0] }) => {
       </Hearth>
       <Characters>
         {characters.map(renderCharacter)}
-        {!characters.length && <h3>No hay personajes agregados</h3>}
+        {!characters.length && <h3>No characters added</h3>}
       </Characters>
     </Container>
   );
