@@ -1,5 +1,5 @@
-import ApolloClient, { gql } from 'apollo-boost';
-import { updateDB, getFavs } from '../firebase';
+import ApolloClient, { gql } from "apollo-boost";
+import { updateDB, getFavs } from "../firebase";
 
 // constants
 
@@ -11,17 +11,17 @@ const initialData = {
   nextPage: 1,
 };
 
-const CLIENT = new ApolloClient({ uri: 'https://rickandmortyapi.com/graphql' });
+const CLIENT = new ApolloClient({ uri: "https://rickandmortyapi.com/graphql" });
 
-const GET_CHARACTERS = 'GET_CHARACTERS';
-const GET_CHARACTERS_SUCCESS = 'GET_CHARACTERS_SUCCESS';
-const GET_CHARACTERS_ERROR = 'GET_CHARACTERS_ERROR';
-const REMOVE_CHARACTER = 'REMOVE_CHARACTER';
-const ADD_TO_FAVORITES = 'ADD_TO_FAVORITES';
-const GET_FAVS = 'GET_FAVS ';
-const GET_FAVS_SUCCESS = 'GET_FAVS_SUCCESS ';
-const GET_FAVS_ERROR = 'GET_FAVS_ERROR';
-const UPDATE_PAGE = 'UPDATE_PAGE';
+const GET_CHARACTERS = "GET_CHARACTERS";
+const GET_CHARACTERS_SUCCESS = "GET_CHARACTERS_SUCCESS";
+const GET_CHARACTERS_ERROR = "GET_CHARACTERS_ERROR";
+const REMOVE_CHARACTER = "REMOVE_CHARACTER";
+const ADD_TO_FAVORITES = "ADD_TO_FAVORITES";
+const GET_FAVS = "GET_FAVS ";
+const GET_FAVS_SUCCESS = "GET_FAVS_SUCCESS ";
+const GET_FAVS_ERROR = "GET_FAVS_ERROR";
+const UPDATE_PAGE = "UPDATE_PAGE";
 
 // reducer
 

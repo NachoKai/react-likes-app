@@ -1,5 +1,5 @@
-import { loginWithGoogle, signOutGoogle } from '../firebase';
-import { retreiveFavs } from './characters';
+import { loginWithGoogle, signOutGoogle } from "../firebase";
+import { retreiveFavs } from "./characters";
 
 // constants
 
@@ -8,10 +8,10 @@ const initialData = {
   fetching: false,
 };
 
-const LOGIN = 'LOGIN';
-const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
-const LOGIN_ERROR = 'LOGIN_ERROR';
-const LOG_OUT = 'LOG_OUT';
+const LOGIN = "LOGIN";
+const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+const LOGIN_ERROR = "LOGIN_ERROR";
+const LOG_OUT = "LOG_OUT";
 
 // reducer
 
@@ -44,13 +44,13 @@ export const logOutAction = () => {
     dispatch({
       type: LOG_OUT,
     });
-    localStorage.removeItem('storage');
+    localStorage.removeItem("storage");
   };
 };
 
 export const restoreSessionAction = () => {
   return dispatch => {
-    let storage = localStorage.getItem('storage');
+    let storage = localStorage.getItem("storage");
     storage = JSON.parse(storage);
 
     if (storage && storage.user) {

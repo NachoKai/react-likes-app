@@ -1,12 +1,40 @@
-import React from 'react';
-import styled from 'styled-components';
-import { connect } from 'react-redux';
+import React from "react";
+import styled from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
 
-import {
-  removeCharacterAction,
-  addToFavoritesAction,
-} from '../redux/characters';
-import Card from './Card';
+import { removeCharacterAction, addToFavoritesAction } from "../redux/characters";
+import Card from "./Card";
+
+const Home = () => {
+  const dispatch = useDispatch();
+  const chars = useSelector(state => state.characters.array);
+
+  const renderCharacter = () => {
+    let char = chars[0];
+    return <Card rightClick={addFav} leftClick={removeCharacter} {...char} />;
+  };
+
+  const removeCharacter = () => {
+    return dispatch(removeCharacterAction());
+  };
+
+  const addFav = () => {
+    return dispatch(addToFavoritesAction());
+  };
+
+  return (
+    <Container>
+      <h2>
+        <span role="img" aria-label="alien">
+          👽
+        </span>
+      </h2>
+      <div>{renderCharacter()}</div>
+    </Container>
+  );
+};
+
+export default Home;
 
 const Container = styled.div`
   width: 100%;
@@ -16,38 +44,3 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
 `;
-
-const Home = ({ chars, removeCharacterAction, addToFavoritesAction }) => {
-  const renderCharacter = () => {
-    let char = chars[0];
-    return (
-      <Card rightClick={addFav} leftClick={removeCharacterAction} {...char} />
-    );
-  };
-
-  const addFav = () => {
-    return addToFavoritesAction();
-  };
-
-  return (
-    <Container>
-      <h2>
-        <span role='img' aria-label='alien'>
-          👽
-        </span>
-      </h2>
-      <div>{renderCharacter()}</div>
-    </Container>
-  );
-};
-
-const mapStateToProps = state => {
-  return {
-    chars: state.characters.array,
-  };
-};
-
-export default connect(mapStateToProps, {
-  addToFavoritesAction,
-  removeCharacterAction,
-})(Home);

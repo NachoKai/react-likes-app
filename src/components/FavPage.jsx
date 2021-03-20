@@ -1,8 +1,32 @@
-import React from 'react';
-import styled from 'styled-components';
-import { connect } from 'react-redux';
+import React from "react";
+import styled from "styled-components";
+import { useSelector } from "react-redux";
 
-import Card from './Card';
+import Card from "./Card";
+
+const FavPage = () => {
+  const characters = useSelector(state => state.characters.favorites);
+
+  const renderCharacter = (char, i) => {
+    return <Card {...char} key={i} hide />;
+  };
+
+  return (
+    <Container>
+      <Hearth>
+        <span role="img" aria-label="hearth">
+          ❤️
+        </span>
+      </Hearth>
+      <Characters>
+        {characters.map(renderCharacter)}
+        {!characters.length && <h3>No characters added</h3>}
+      </Characters>
+    </Container>
+  );
+};
+
+export default FavPage;
 
 const Container = styled.div`
   display: flex;
@@ -17,30 +41,3 @@ const Hearth = styled.span`
 `;
 
 const Characters = styled.div``;
-
-const FavPage = ({ characters = [0] }) => {
-  const renderCharacter = (char, i) => {
-    return <Card {...char} key={i} hide />;
-  };
-  return (
-    <Container>
-      <Hearth>
-        <span role='img' aria-label='hearth'>
-          ❤️
-        </span>
-      </Hearth>
-      <Characters>
-        {characters.map(renderCharacter)}
-        {!characters.length && <h3>No characters added</h3>}
-      </Characters>
-    </Container>
-  );
-};
-
-const mapStateToProps = ({ characters }) => {
-  return {
-    characters: characters.favorites,
-  };
-};
-
-export default connect(mapStateToProps)(FavPage);

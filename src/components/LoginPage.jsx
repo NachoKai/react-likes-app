@@ -1,8 +1,48 @@
-import React from 'react';
-import styled from 'styled-components';
-import { connect } from 'react-redux';
+import React from "react";
+import styled from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
 
-import { doGoogleLoginAction, logOutAction } from '../redux/user.js';
+import { doGoogleLoginAction, logOutAction } from "../redux/user.js";
+
+const LoginPage = () => {
+  const dispatch = useDispatch();
+  const fetching = useSelector(state => state.user.fetching);
+  const loggedIn = useSelector(state => state.user.loggedIn);
+
+  const doLogin = () => {
+    dispatch(doGoogleLoginAction());
+  };
+
+  const doLogOut = () => {
+    dispatch(logOutAction());
+  };
+
+  if (fetching) {
+    return <h2 style={{ textAlign: "center" }}>Loading...</h2>;
+  }
+
+  return (
+    <Container>
+      {loggedIn ? (
+        <>
+          <h1>
+            <span role="img" aria-label="bye">
+              👋
+            </span>
+          </h1>
+          <Button onClick={doLogOut}>Log Out</Button>
+        </>
+      ) : (
+        <>
+          <h1>Sign In with Google</h1>
+          <Button onClick={doLogin}>Sign In</Button>
+        </>
+      )}
+    </Container>
+  );
+};
+
+export default LoginPage;
 
 const Container = styled.div`
   width: 100%;
@@ -31,53 +71,3 @@ const Button = styled.button`
     border: 2px solid transparent;
   }
 `;
-
-const LoginPage = ({
-  loggedIn,
-  logOutAction,
-  fetching,
-  doGoogleLoginAction,
-}) => {
-  const doLogin = () => {
-    doGoogleLoginAction();
-  };
-
-  const doLogOut = () => {
-    logOutAction();
-  };
-
-  if (fetching) {
-    return <h2 style={{ textAlign: 'center' }}>Loading...</h2>;
-  }
-
-  return (
-    <Container>
-      {loggedIn ? (
-        <>
-          <h1>
-            <span role='img' aria-label='bye'>
-              👋
-            </span>
-          </h1>
-          <Button onClick={doLogOut}>Log Out</Button>
-        </>
-      ) : (
-        <>
-          <h1>Sign In with Google</h1>
-          <Button onClick={doLogin}>Sign In</Button>
-        </>
-      )}
-    </Container>
-  );
-};
-
-const mapStateToProps = ({ user: { fetching, loggedIn } }) => {
-  return {
-    fetching,
-    loggedIn,
-  };
-};
-
-export default connect(mapStateToProps, { doGoogleLoginAction, logOutAction })(
-  LoginPage
-);

@@ -1,7 +1,49 @@
-import React from 'react';
-import styled from 'styled-components';
-import FontAwesome from 'react-fontawesome';
-import PropTypes from 'prop-types';
+import React from "react";
+import styled from "styled-components";
+import FontAwesome from "react-fontawesome";
+import PropTypes from "prop-types";
+
+const Card = ({ name, image, rightClick, leftClick, hide }) => {
+  return (
+    <>
+      {name ? (
+        <Container>
+          <CardContainer>
+            {image && <img alt={name} src={image} />}
+            <Name>{name}</Name>
+
+            {!hide && (
+              <Actions>
+                <Left onClick={leftClick}>
+                  <FontAwesome name="thumbs-down" size="2x" />
+                </Left>
+                <Right onClick={rightClick}>
+                  <FontAwesome name="heart" size="2x" />
+                </Right>
+              </Actions>
+            )}
+          </CardContainer>
+        </Container>
+      ) : (
+        <h2>No more characters...</h2>
+      )}
+    </>
+  );
+};
+
+export default Card;
+
+Card.propTypes = {
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  leftClick: PropTypes.func,
+  rightClick: PropTypes.func,
+};
+
+Card.defaultProps = {
+  name: "Loading...",
+  image: "",
+};
 
 const Container = styled.div`
   display: flex;
@@ -89,45 +131,3 @@ const Right = styled.div`
     font-size: 7rem;
   }
 `;
-
-const Card = ({ name, image, rightClick, leftClick, hide }) => {
-  return (
-    <>
-      {name ? (
-        <Container>
-          <CardContainer>
-            {image && <img alt={name} src={image} />}
-            <Name>{name}</Name>
-
-            {!hide && (
-              <Actions>
-                <Left onClick={leftClick}>
-                  <FontAwesome name='thumbs-down' size='2x' />
-                </Left>
-                <Right onClick={rightClick}>
-                  <FontAwesome name='heart' size='2x' />
-                </Right>
-              </Actions>
-            )}
-          </CardContainer>
-        </Container>
-      ) : (
-        <h2>No more characters...</h2>
-      )}
-    </>
-  );
-};
-
-export default Card;
-
-Card.propTypes = {
-  name: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  leftClick: PropTypes.func,
-  rightClick: PropTypes.func,
-};
-
-Card.defaultProps = {
-  name: 'Loading...',
-  image: '',
-};
